@@ -1,8 +1,10 @@
 FROM snowyday/barekit:latest
 MAINTAINER snowyday
 
-# Set user
+# User
 ENV USER user
+ENV PASS user
+
 USER $USER
 WORKDIR /home/$USER
 
@@ -40,7 +42,7 @@ RUN conda clean --all -y
 
 # Jupyter
 RUN jupyter notebook --generate-config \
-    && echo ''c.NotebookApp.token = \"user\"'' >> $HOME/.jupyter/jupyter_notebook_config.py
+    && echo ''c.NotebookApp.token = \"$PASS\"'' >> $HOME/.jupyter/jupyter_notebook_config.py
 
 # ENV export
 RUN echo "export PYENV_ROOT=/home/$USER/.pyenv" >> ~/.zshrc
