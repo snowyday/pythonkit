@@ -39,7 +39,8 @@ RUN conda clean --all -y
 
 # Jupyter
 RUN jupyter notebook --generate-config \
-    && echo ''c.NotebookApp.token = \"$PASS\"'' >> $HOME/.jupyter/jupyter_notebook_config.py
+    && echo ''c.NotebookApp.token = \"$PASS\"'' >> $HOME/.jupyter/jupyter_notebook_config.py \
+    && echo ''c.NotebookApp.ip = \"0.0.0.0\"'' >> $HOME/.jupyter/jupyter_notebook_config.py
 
 # ENV export
 RUN echo "export PYENV_ROOT=/home/$USER/.pyenv" >> ~/.zshrc
