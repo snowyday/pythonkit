@@ -9,7 +9,7 @@ USER $USER
 WORKDIR /home/$USER
 
 # Set anaconda version
-ENV ANACONDA anaconda3-5.3.1
+ENV ANACONDA anaconda3-2018.12
 ENV HOME /home/$USER
 ENV PATH /home/$USER/.pyenv/bin:/opt/pyenv/shims:$PATH
 ENV PYENV_ROOT /home/$USER/.pyenv
@@ -31,11 +31,8 @@ RUN conda install -y sas7bdat
 RUN conda install -y pytorch torchvision -c pytorch
 
 ## pip
-RUN pip install tqdm dill lifelines xgboost
+RUN pip install tqdm dill lifelines xgboost ipdb
 RUN pip install git+https://github.com/hyperopt/hyperopt.git
-
-## for 'collections.abc' is deprecated, and in 3.8 it will stop working
-RUN conda upgrade scikit-learn -y
 
 ## clear
 RUN conda clean --all -y
