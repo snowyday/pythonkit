@@ -48,5 +48,6 @@ RUN echo "export PATH=$PYENV_ROOT/bin:$PYENV_ROOT/shims:\$PATH" >> ~/.zshrc
 RUN echo "export DYLD_FALLBACK_LIBRARY_PATH=$PYENV_ROOT/versions/$ANACONDA/lib" >> ~/.zshrc
 RUN echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 
-# Set root for sshd
+# SSH start
 USER root
+CMD ["/usr/sbin/sshd", "-D"]
