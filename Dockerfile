@@ -28,7 +28,7 @@ RUN conda update --all -y && conda clean --all -y
 # Python libs
 ## conda
 RUN conda install -y sas7bdat
-RUN conda install -y pytorch torchvision -c pytorch
+RUN conda install -y pytorch torchvision cudatoolkit=9.0 -c pytorch
 RUN conda install -y ignite -c pytorch
 
 ## pip
