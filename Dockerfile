@@ -29,6 +29,7 @@ RUN conda update --all -y && conda clean --all -y
 ## conda
 RUN conda install -y sas7bdat
 RUN conda install -y pytorch torchvision -c pytorch
+RUN conda install -y ignite -c pytorch
 
 ## pip
 RUN pip install tqdm dill lifelines xgboost ipdb
