@@ -32,7 +32,7 @@ RUN conda install -y pytorch torchvision cudatoolkit=9.0 -c pytorch
 RUN conda install -y ignite -c pytorch
 
 ## pip
-RUN pip install tqdm dill lifelines xgboost ipdb parmap
+RUN pip install tqdm dill lifelines xgboost ipdb parmap gym
 RUN pip install git+https://github.com/hyperopt/hyperopt.git
 
 ## clear
