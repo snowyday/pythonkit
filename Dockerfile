@@ -9,7 +9,7 @@ USER $USER
 WORKDIR /home/$USER
 
 # Set anaconda version
-ENV ANACONDA anaconda3-2019.07
+ENV ANACONDA anaconda3-2019.10
 ENV HOME /home/$USER
 ENV PATH /home/$USER/.pyenv/bin:/opt/pyenv/shims:$PATH
 ENV PYENV_ROOT /home/$USER/.pyenv
@@ -23,16 +23,13 @@ RUN git clone git://github.com/yyuu/pyenv-update.git ~/.pyenv/plugins/pyenv-upda
 # Anaconda
 RUN pyenv install $ANACONDA
 RUN pyenv global $ANACONDA
-RUN conda update --all -y && conda clean --all -y
 
 # Python libs
 ## conda
-RUN conda install -y sas7bdat
 RUN conda install -y pytorch torchvision cudatoolkit=9.0 -c pytorch
-RUN conda install -y ignite -c pytorch
 
 ## pip
-RUN pip install tqdm dill lifelines xgboost ipdb parmap gym pyarrow hiredis supervisor
+RUN pip install tqdm dill lifelines Xgboost ipdb parmap gym pyarrow hiredis plotly==4.4.1 umap-learn
 RUN pip install git+https://github.com/hyperopt/hyperopt.git
 
 ## clear
