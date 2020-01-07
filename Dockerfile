@@ -29,7 +29,7 @@ RUN pyenv global $ANACONDA
 RUN conda install -y pytorch torchvision cudatoolkit=9.0 -c pytorch
 
 ## pip
-RUN pip install tqdm dill lifelines Xgboost ipdb parmap gym pyarrow hiredis plotly==4.4.1 umap-learn
+RUN pip install tqdm dill lifelines Xgboost ipdb parmap gym pyarrow hiredis plotly==4.4.1 umap-learn optuna
 RUN pip install git+https://github.com/hyperopt/hyperopt.git
 
 ## clear
