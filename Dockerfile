@@ -23,16 +23,16 @@ RUN git clone git://github.com/yyuu/pyenv-update.git ~/.pyenv/plugins/pyenv-upda
 # Anaconda
 RUN pyenv install $ANACONDA
 RUN pyenv global $ANACONDA
-RUN conda update --all -y && conda clean --all -y
+# RUN conda update --all -y && conda clean --all -y
 
 # Python libs
 ## conda
 RUN conda install -y sas7bdat
-RUN conda install -y pytorch torchvision cudatoolkit=9.0 -c pytorch
+RUN conda install -y pytorch torchvision cudatoolkit=9.2 -c pytorch
 RUN conda install -y ignite -c pytorch
 
 ## pip
-RUN pip install tqdm dill lifelines xgboost ipdb parmap gym pyarrow hiredis supervisor
+RUN pip install tqdm dill lifelines xgboost ipdb parmap gym pyarrow hiredis supervisor umap-learn plotly==4.4.1
 RUN pip install git+https://github.com/hyperopt/hyperopt.git
 
 ## clear
