@@ -26,7 +26,7 @@ RUN pyenv global $ANACONDA
 
 # Python libs
 ## conda
-RUN conda install -y pytorch torchvision cudatoolkit=9.0 -c pytorch
+RUN conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 
 ## pip
 RUN pip install tqdm dill lifelines Xgboost ipdb parmap gym pyarrow hiredis plotly==4.4.1 umap-learn optuna
