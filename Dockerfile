@@ -9,7 +9,7 @@ USER $USER
 WORKDIR /home/$USER
 
 # Set anaconda version
-ENV ANACONDA anaconda3-2019.10
+ENV ANACONDA anaconda3-2020.02
 ENV HOME /home/$USER
 ENV PATH /home/$USER/.pyenv/bin:/opt/pyenv/shims:$PATH
 ENV PYENV_ROOT /home/$USER/.pyenv
